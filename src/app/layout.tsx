@@ -3,6 +3,7 @@ import { Hanken_Grotesk, Geist_Mono } from "next/font/google";
 import { SITE_CONFIG } from "@/lib/constants";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const hankenGrotesk = Hanken_Grotesk({
@@ -74,6 +75,7 @@ export default function RootLayout({
 				<Header />
 				<main className="flex-1">{children}</main>
 				<Footer />
+				<Analytics />
 			</body>
 		</html>
 	);
