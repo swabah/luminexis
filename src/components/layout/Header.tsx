@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 interface NavItem {
@@ -10,20 +10,44 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
 	{ label: "The Reality", href: "#reality" },
-	{ label: "Luminexis", href: "#luminax" },
+	{ label: "Luminexis", href: "#solution" },
 	{ label: "How It Works", href: "#how-it-works" },
+	{ label: "Why Us", href: "#why-us" },
 ];
 
 export default function Header() {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const [isScrolled, setIsScrolled] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			setIsScrolled(window.scrollY >= 0);
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		// Check initial scroll position
+		handleScroll();
+
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
 
 	return (
-		<header className="bg-white w-full absolute top-0 z-50">
-			<div className="container mx-auto flex h-16 md:h-24 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+		<header
+			className={`w-full z-50 transition-all duration-300 ${
+				isScrolled
+					? "fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100"
+					: "absolute top-0 bg-white"
+			}`}
+		>
+			<div
+				className={`container mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
+					isScrolled ? "h-16" : "h-16 md:h-24"
+				}`}
+			>
 				<Link href="/" className="flex items-center gap-3">
 					<div className="flex h-8 w-8 items-center justify-center">
 						<svg
-							className="h-8 w-8 text-[#0f172a]"
+							className="h-8 w-8 text-black"
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="currentColor"
@@ -38,7 +62,7 @@ export default function Header() {
 							<path d="M9 8v8" />
 						</svg>
 					</div>
-					<span className="text-[#0f172a] text-xl font-medium tracking-tight">
+					<span className="font-logo text-black text-xl tracking-tight">
 						Luminexis
 					</span>
 				</Link>
@@ -52,7 +76,7 @@ export default function Header() {
 						<Link
 							key={item.label}
 							href={item.href}
-							className="text-[#64748b] hover:text-[#0f172a] text-[15px] font-medium transition-colors"
+							className="text-black/60 hover:text-black text-[15px] font-medium transition-colors"
 						>
 							{item.label}
 						</Link>
@@ -61,18 +85,20 @@ export default function Header() {
 
 				{/* Desktop CTA */}
 				<div className="hidden md:block">
-					<Link
-						href="/contact"
-						className="inline-flex h-11 items-center justify-center rounded-full bg-[#0f172a] px-7 text-[15px] font-medium text-white transition-all hover:bg-[#1e293b] hover:shadow-lg hover:-translate-y-0.5"
+					<a
+						href="https://wa.me/918113841363"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-7 text-[15px] font-medium text-white transition-all hover:bg-primary-dark hover:shadow-lg hover:-translate-y-0.5"
 					>
 						Connect Us
-					</Link>
+					</a>
 				</div>
 
 				{/* Mobile Menu Button */}
 				<button
 					id="mobile-menu-toggle"
-					className="text-[#64748b] hover:text-[#0f172a] inline-flex items-center justify-center rounded-md p-2 transition-colors md:hidden"
+					className="text-black/60 hover:text-black inline-flex items-center justify-center rounded-md p-2 transition-colors md:hidden"
 					onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
 					aria-expanded={isMobileMenuOpen}
 					aria-controls="mobile-menu"
@@ -114,19 +140,21 @@ export default function Header() {
 							<Link
 								key={item.label}
 								href={item.href}
-								className="text-[#64748b] hover:bg-gray-50 hover:text-[#0f172a] block rounded-md px-3 py-2 text-base font-medium transition-colors"
+								className="text-black/60 hover:bg-black/5 hover:text-black block rounded-md px-3 py-2 text-base font-medium transition-colors"
 								onClick={() => setIsMobileMenuOpen(false)}
 							>
 								{item.label}
 							</Link>
 						))}
-						<Link
-							href="/contact"
+						<a
+							href="https://wa.me/918113841363"
+							target="_blank"
+							rel="noopener noreferrer"
 							className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-full bg-[#0f172a] px-7 text-[15px] font-medium text-white transition-all hover:bg-[#1e293b]"
 							onClick={() => setIsMobileMenuOpen(false)}
 						>
 							Connect Us
-						</Link>
+						</a>
 					</div>
 				</nav>
 			)}

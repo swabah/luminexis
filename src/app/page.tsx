@@ -13,7 +13,7 @@ export default function HomePage() {
       <Solution />
       
       {/* Combined How It Works & Why Us section with shared background */}
-      <div className="relative w-full bg-white overflow-hidden">
+      <div className="relative w-full bg-white overflow-clip">
          {/* Shared Background Image */}
          <div className="absolute inset-x-0 bottom-0 top-[15%] md:top-[25%] z-0">
              <Image

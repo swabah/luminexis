@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { motion, useScroll } from "framer-motion";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export default function Reality() {
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -14,27 +15,29 @@ export default function Reality() {
 	});
 
 	return (
-		<section className="w-full bg-white py-16 sm:py-24 md:py-32">
+		<section id="reality" className="w-full bg-white pt-8 pb-16 sm:pt-12 sm:pb-24 md:pt-16 md:pb-32">
 			<Container size="lg">
 				{/* Main content card wrapper mimicking figma container */}
-				<div className="rounded-[2.5rem] bg-[#f8f9fb] p-8 sm:p-12 md:p-20 relative overflow-hidden">
+				<div className="rounded-[2.5rem] bg-primary/5 p-8 sm:p-12 md:p-20 relative overflow-hidden">
 					{/* Header section */}
-					<div className="flex flex-col items-center mb-16 md:mb-28 text-center relative z-10">
-						<span className="text-sm font-medium uppercase tracking-widest text-[#8ebfa1] mb-4">
-							The Reality
-						</span>
-						<h2 className="text-3xl md:text-5xl font-medium text-[#1e293b] max-w-2xl leading-[1.2]">
-							A world not designed for
-							<br />
-							everyone
-						</h2>
-					</div>
+					<SectionHeader
+						tag="The Reality"
+						title={
+							<>
+								A world not designed for
+								<br />
+								everyone
+							</>
+						}
+						textColor="dark"
+						className="mb-16 md:mb-28"
+					/>
 
 					<div className="relative mx-auto max-w-5xl" ref={containerRef}>
 						{/* Animated continuous vertical line */}
-						<div className="absolute left-[-2rem] top-0 bottom-0 w-[5px] md:w-[10px] rounded-full bg-gray-200/50 hidden lg:block overflow-hidden">
+						<div className="absolute left-[-2rem] top-0 bottom-0 w-[5px] md:w-[10px] rounded-full bg-primary/10 hidden lg:block overflow-hidden">
 							<motion.div
-								className="absolute top-0 w-full rounded-full bg-gradient-to-b from-sky-300 via-lime-200 to-rose-300 origin-top"
+								className="absolute top-0 w-full rounded-full bg-gradient-to-b from-primary/30 via-primary to-primary-dark origin-top"
 								style={{ scaleY: scrollYProgress, height: "100%" }}
 							/>
 						</div>
@@ -57,7 +60,7 @@ export default function Reality() {
 								{/* Connecting lines fanning out */}
 								<div className="col-span-2 hidden items-center justify-center h-full md:flex">
 									<svg
-										className="h-16 w-full text-gray-300"
+										className="h-16 w-full text-primary/20"
 										viewBox="0 0 100 40"
 										fill="none"
 									>
@@ -81,12 +84,12 @@ export default function Reality() {
 
 								<div className="col-span-1 flex flex-col items-start gap-2 md:col-span-5">
 									<div className="flex items-center gap-3">
-										<span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#a3d9be] block" />
-										<h3 className="font-sans text-lg font-semibold text-[#1e293b] sm:text-xl">
+										<span className="h-2.5 w-2.5 shrink-0 rounded-full bg-primary block" />
+										<h3 className="font-sans text-lg font-semibold text-black sm:text-xl">
 											929 Million People Affected
 										</h3>
 									</div>
-									<p className="pl-5 text-[15px] leading-relaxed text-[#64748b] max-w-sm">
+									<p className="pl-5 text-[15px] leading-relaxed text-black/60 max-w-sm">
 										Millions of blind and deaf individuals struggle to navigate
 										the world safely every day.
 									</p>
@@ -97,12 +100,12 @@ export default function Reality() {
 							<div className="grid grid-cols-1 items-center gap-8 md:grid-cols-12 relative flex-col-reverse md:flex-row">
 								<div className="col-span-1 flex flex-col items-start gap-2 md:col-span-5 md:items-end md:text-right order-2 md:order-1">
 									<div className="flex items-center gap-3 md:flex-row-reverse">
-										<span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#a3d9be] block" />
-										<h3 className="font-sans text-lg font-semibold text-[#1e293b] sm:text-xl">
+										<span className="h-2.5 w-2.5 shrink-0 rounded-full bg-primary block" />
+										<h3 className="font-sans text-lg font-semibold text-black sm:text-xl">
 											90% Left Without Access
 										</h3>
 									</div>
-									<p className="pl-5 md:pl-0 md:pr-5 text-[15px] leading-relaxed text-[#64748b] max-w-sm">
+									<p className="pl-5 md:pl-0 md:pr-5 text-[15px] leading-relaxed text-black/60 max-w-sm">
 										Most cannot afford existing solutions, leaving them without
 										reliable support.
 									</p>
@@ -111,7 +114,7 @@ export default function Reality() {
 								{/* Connecting lines fanning out */}
 								<div className="col-span-2 hidden items-center justify-center h-full md:flex order-2">
 									<svg
-										className="h-16 w-full text-gray-300"
+										className="h-16 w-full text-primary/20"
 										viewBox="0 0 100 40"
 										fill="none"
 									>
@@ -187,12 +190,12 @@ export default function Reality() {
 
 								<div className="col-span-1 flex flex-col items-start gap-2 md:col-span-5">
 									<div className="flex items-center gap-3">
-										<span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#a3d9be] block" />
-										<h3 className="font-sans text-lg font-semibold text-[#1e293b] sm:text-xl">
+										<span className="h-2.5 w-2.5 shrink-0 rounded-full bg-primary block" />
+										<h3 className="font-sans text-lg font-semibold text-black sm:text-xl">
 											1 Simple Task, Multiple Barriers
 										</h3>
 									</div>
-									<p className="pl-5 text-[15px] leading-relaxed text-[#64748b] max-w-sm">
+									<p className="pl-5 text-[15px] leading-relaxed text-black/60 max-w-sm">
 										Walking, traveling, or exploring often requires assistance,
 										limiting true independence.
 									</p>

@@ -2,24 +2,20 @@ import type { NavItem } from '@/types';
 
 export const MAIN_NAV: NavItem[] = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'The Reality', href: '#reality' },
+  { label: 'Luminexis', href: '#solution' },
+  { label: 'How It Works', href: '#how-it-works' },
+  { label: 'Why Us', href: '#why-us' },
 ];
 
 export const FOOTER_NAV: Record<string, NavItem[]> = {
   product: [
-    { label: 'Features', href: '/features' },
-    { label: 'Pricing', href: '/pricing' },
-    { label: 'Changelog', href: '/changelog' },
+    { label: 'The Reality', href: '#reality' },
+    { label: 'Luminexis', href: '#solution' },
+    { label: 'How It Works', href: '#how-it-works' },
+    { label: 'Why Us', href: '#why-us' },
   ],
   company: [
-    { label: 'About', href: '/about' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Careers', href: '/careers' },
-  ],
-  legal: [
-    { label: 'Privacy', href: '/privacy' },
-    { label: 'Terms', href: '/terms' },
+    { label: 'Contact', href: 'https://wa.me/918113841363' },
   ],
 };

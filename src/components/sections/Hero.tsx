@@ -13,7 +13,7 @@ export default function Hero() {
 
 			<Container
 				size="lg"
-				className="relative pt-[150px] md:pt-[100px] z-10 flex flex-col md:flex-row h-full min-h-[calc(100vh)] items-center"
+				className="relative pt-[120px] pb-[58vh] md:pt-[100px] md:pb-0 z-10 flex flex-col md:flex-row h-full min-h-screen md:min-h-[calc(100vh)] items-center"
 			>
 				{/* Text and CTA layout */}
 				<div className="w-full relative z-20 flex-shrink-0 order-1 md:order-none mt-4 md:mt-0 md:grid md:grid-cols-12 items-center">
@@ -26,15 +26,20 @@ export default function Hero() {
 							people with vision and hearing loss.
 						</p>
 						<div className="mt-6 sm:mt-8">
-							<Button className="h-auto rounded-full bg-white px-7 py-2.5 text-base font-semibold text-[#272937] shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/95 hover:shadow-xl active:bg-white/90">
+							<a
+								href="https://wa.me/918113841363"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="inline-flex items-center justify-center h-auto rounded-full bg-white px-7 py-2.5 text-base font-semibold text-black shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/95 hover:shadow-xl active:bg-white/90 cursor-pointer"
+							>
 								Connect us
-							</Button>
+							</a>
 						</div>
 					</div>
 				</div>
 
 				{/* Image layers - stacked on mobile, absolute pinned to right on desktop */}
-				<div className="relative md:absolute md:bottom-0 md:right-4 z-0  h-[65vh] w-[110vw] -mx-4 sm:w-full sm:mx-0 md:h-[85vh] md:w-[45vw] lg:h-[90vh] lg:w-[48vw] order-2 md:order-none -mt-33 md:mt-0">
+				<div className="absolute bottom-0 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-4 z-0 h-[58vh] w-[110vw] sm:w-full md:h-[85vh] md:w-[45vw] lg:h-[90vh] lg:w-[48vw] md:bottom-0">
 					{/* Green bush cutout behind the woman */}
 					<div className=" hidden md:block absolute bottom-0 right-[30%] z-5 h-[20vh] w-[45%] md:h-[35vh] md:w-[40%]">
 						<Image
@@ -42,7 +47,7 @@ export default function Hero() {
 							alt="Midground blurred foliage"
 							fill
 							sizes="(max-width: 768px) 50vw, 20vw"
-							className="object-contain object-bottom-right opacity-90"
+							className="object-contain object-right-bottom opacity-90"
 						/>
 					</div>
 
@@ -54,7 +59,7 @@ export default function Hero() {
 							fill
 							priority
 							sizes="(max-width: 768px) 100vw, 50vw"
-							className="object-contain object-bottom-right"
+							className="object-contain object-right-bottom"
 						/>
 					</div>
 				</div>
