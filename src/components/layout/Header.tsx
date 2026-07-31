@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface NavItem {
 	label: string;
@@ -35,8 +36,8 @@ export default function Header() {
 		<header
 			className={`w-full z-50 transition-all duration-300 ${
 				isScrolled
-					? "fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100"
-					: "absolute top-0 bg-white"
+					? "fixed top-0 left-0 right-0 bg-background/90 backdrop-blur-md shadow-sm border-b border-border"
+					: "absolute top-0 bg-background"
 			}`}
 		>
 			<div
@@ -45,26 +46,9 @@ export default function Header() {
 				}`}
 			>
 				<Link href="/" className="flex items-center gap-3">
-					<div className="flex h-8 w-8 items-center justify-center">
-						<svg
-							className="h-8 w-8 text-black"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							strokeWidth="1.5"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-						>
-							<circle cx="12" cy="12" r="10" />
-							<path d="M9 8h6" />
-							<path d="M9 12h5" />
-							<path d="M9 16h6" />
-							<path d="M9 8v8" />
-						</svg>
+					<div className="flex h-10 items-center justify-center relative">
+						<Image src="/images/PNG Logo.png" alt="Luminexis Logo" width={40} height={40} className="object-contain" />
 					</div>
-					<span className="font-logo text-black text-xl tracking-tight">
-						Luminexis
-					</span>
 				</Link>
 
 				{/* Desktop Navigation */}
@@ -76,7 +60,7 @@ export default function Header() {
 						<Link
 							key={item.label}
 							href={item.href}
-							className="text-black/60 hover:text-black text-[15px] font-medium transition-colors"
+							className="text-foreground/60 hover:text-foreground text-[15px] font-medium transition-colors"
 						>
 							{item.label}
 						</Link>
@@ -98,7 +82,7 @@ export default function Header() {
 				{/* Mobile Menu Button */}
 				<button
 					id="mobile-menu-toggle"
-					className="text-black/60 hover:text-black inline-flex items-center justify-center rounded-md p-2 transition-colors md:hidden"
+					className="text-foreground/60 hover:text-foreground inline-flex items-center justify-center rounded-md p-2 transition-colors md:hidden"
 					onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
 					aria-expanded={isMobileMenuOpen}
 					aria-controls="mobile-menu"
@@ -132,7 +116,7 @@ export default function Header() {
 			{isMobileMenuOpen && (
 				<nav
 					id="mobile-menu"
-					className="bg-white border-b border-gray-100 md:hidden absolute top-full left-0 w-full shadow-lg"
+					className="bg-background border-b border-border md:hidden absolute top-full left-0 w-full shadow-lg"
 					aria-label="Mobile navigation"
 				>
 					<div className="container mx-auto max-w-7xl space-y-1 px-4 pt-2 pb-6 sm:px-6 flex flex-col gap-2">
@@ -140,7 +124,7 @@ export default function Header() {
 							<Link
 								key={item.label}
 								href={item.href}
-								className="text-black/60 hover:bg-black/5 hover:text-black block rounded-md px-3 py-2 text-base font-medium transition-colors"
+								className="text-foreground/60 hover:bg-foreground/5 hover:text-foreground block rounded-md px-3 py-2 text-base font-medium transition-colors"
 								onClick={() => setIsMobileMenuOpen(false)}
 							>
 								{item.label}

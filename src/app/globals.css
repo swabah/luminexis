@@ -2,23 +2,23 @@
 
 /* ─── Design Tokens ─── */
 :root {
-  --background: #ffffff;
-  --foreground: #000000;
-  --border: #e5e5e5;
-  --muted: #f5f5f5;
-  --muted-foreground: #737373;
+  --background: #000000;
+  --foreground: #ffffff;
+  --border: #033C1F;
+  --muted: #033C1F;
+  --muted-foreground: #a3a3a3;
   --accent: #05773E;
   --accent-foreground: #ffffff;
   --ring: #05773E;
   --radius: 0.625rem;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #000000;
+    --background: #000000; /* Keep it dark for the branding */
     --foreground: #ffffff;
-    --border: #262626;
-    --muted: #171717;
+    --border: #033C1F;
+    --muted: #033C1F;
     --muted-foreground: #a3a3a3;
     --accent: #05773E;
     --accent-foreground: #ffffff;

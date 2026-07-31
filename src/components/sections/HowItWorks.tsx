@@ -80,7 +80,7 @@ export default function HowItWorks() {
 	return (
 		<section
 			id="how-it-works"
-			className="w-full pt-28 pb-32 md:pt-36 md:pb-48 relative z-10 bg-white"
+			className="w-full pt-28 pb-32 md:pt-36 md:pb-48 relative z-10 bg-background"
 		>
 			{/* Background Glows */}
 			<div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
@@ -97,7 +97,7 @@ export default function HowItWorks() {
 							align="left"
 							className="mb-8"
 						/>
-						<p className="text-black/60 text-[15px] leading-relaxed max-w-sm">
+						<p className="text-foreground/60 text-[15px] leading-relaxed max-w-sm">
 							Luminexis is designed to be completely intuitive. Our ecosystem
 							communicates seamlessly to provide you with continuous, reliable
 							environmental awareness.
@@ -117,7 +117,7 @@ export default function HowItWorks() {
 									delay: idx * 0.15,
 									ease: [0.21, 1.11, 0.81, 0.99],
 								}}
-								className="group relative flex flex-col sm:flex-row bg-white rounded-3xl border border-black/[0.04]  overflow-hidden"
+								className="group relative flex flex-col sm:flex-row bg-background rounded-3xl border border-foreground/[0.04]  overflow-hidden"
 							>
 								{/* Image Area */}
 								<div className="relative w-full sm:w-[45%] h-64 sm:h-auto overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10 flex items-center justify-center">
@@ -129,8 +129,8 @@ export default function HowItWorks() {
 								</div>
 
 								{/* Content Area */}
-								<div className="relative w-full sm:w-[55%] p-8 sm:p-10 flex flex-col justify-center bg-white">
-									<div className="absolute top-6 right-8 text-7xl font-bold text-black/[0.03] font-logo pointer-events-none select-none transition-all duration-500 group-hover:-translate-y-2 group-hover:text-primary/5">
+								<div className="relative w-full sm:w-[55%] p-8 sm:p-10 flex flex-col justify-center bg-background">
+									<div className="absolute top-6 right-8 text-7xl font-bold text-foreground/[0.03] font-logo pointer-events-none select-none transition-all duration-500 group-hover:-translate-y-2 group-hover:text-primary/5">
 										{step.id}
 									</div>
 
@@ -138,7 +138,7 @@ export default function HowItWorks() {
 										<div
 											className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${step.color} p-[1px] shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-shadow duration-500`}
 										>
-											<div className="w-full h-full bg-white rounded-[15px] flex items-center justify-center">
+											<div className="w-full h-full bg-background rounded-[15px] flex items-center justify-center">
 												<div
 													className={`w-10 h-10 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white`}
 												>
@@ -146,12 +146,12 @@ export default function HowItWorks() {
 												</div>
 											</div>
 										</div>
-										<h3 className="text-2xl font-semibold text-black tracking-tight">
+										<h3 className="text-2xl font-semibold text-foreground tracking-tight">
 											{step.title}
 										</h3>
 									</div>
 
-									<p className="text-black/60 text-base leading-relaxed relative z-10 pr-4">
+									<p className="text-foreground/60 text-base leading-relaxed relative z-10 pr-4">
 										{step.desc}
 									</p>
 								</div>

@@ -15,7 +15,7 @@ export default function Reality() {
 	});
 
 	return (
-		<section id="reality" className="w-full bg-white pt-8 pb-16 sm:pt-12 sm:pb-24 md:pt-16 md:pb-32">
+		<section id="reality" className="w-full bg-background pt-8 pb-16 sm:pt-12 sm:pb-24 md:pt-16 md:pb-32">
 			<Container size="lg">
 				{/* Main content card wrapper mimicking figma container */}
 				<div className="rounded-[2.5rem] bg-primary/5 p-8 sm:p-12 md:p-20 relative overflow-hidden">
@@ -85,11 +85,11 @@ export default function Reality() {
 								<div className="col-span-1 flex flex-col items-start gap-2 md:col-span-5">
 									<div className="flex items-center gap-3">
 										<span className="h-2.5 w-2.5 shrink-0 rounded-full bg-primary block" />
-										<h3 className="font-sans text-lg font-semibold text-black sm:text-xl">
+										<h3 className="font-sans text-lg font-semibold text-foreground sm:text-xl">
 											929 Million People Affected
 										</h3>
 									</div>
-									<p className="pl-5 text-[15px] leading-relaxed text-black/60 max-w-sm">
+									<p className="pl-5 text-[15px] leading-relaxed text-foreground/60 max-w-sm">
 										Millions of blind and deaf individuals struggle to navigate
 										the world safely every day.
 									</p>
@@ -101,11 +101,11 @@ export default function Reality() {
 								<div className="col-span-1 flex flex-col items-start gap-2 md:col-span-5 md:items-end md:text-right order-2 md:order-1">
 									<div className="flex items-center gap-3 md:flex-row-reverse">
 										<span className="h-2.5 w-2.5 shrink-0 rounded-full bg-primary block" />
-										<h3 className="font-sans text-lg font-semibold text-black sm:text-xl">
+										<h3 className="font-sans text-lg font-semibold text-foreground sm:text-xl">
 											90% Left Without Access
 										</h3>
 									</div>
-									<p className="pl-5 md:pl-0 md:pr-5 text-[15px] leading-relaxed text-black/60 max-w-sm">
+									<p className="pl-5 md:pl-0 md:pr-5 text-[15px] leading-relaxed text-foreground/60 max-w-sm">
 										Most cannot afford existing solutions, leaving them without
 										reliable support.
 									</p>
@@ -191,11 +191,11 @@ export default function Reality() {
 								<div className="col-span-1 flex flex-col items-start gap-2 md:col-span-5">
 									<div className="flex items-center gap-3">
 										<span className="h-2.5 w-2.5 shrink-0 rounded-full bg-primary block" />
-										<h3 className="font-sans text-lg font-semibold text-black sm:text-xl">
+										<h3 className="font-sans text-lg font-semibold text-foreground sm:text-xl">
 											1 Simple Task, Multiple Barriers
 										</h3>
 									</div>
-									<p className="pl-5 text-[15px] leading-relaxed text-black/60 max-w-sm">
+									<p className="pl-5 text-[15px] leading-relaxed text-foreground/60 max-w-sm">
 										Walking, traveling, or exploring often requires assistance,
 										limiting true independence.
 									</p>

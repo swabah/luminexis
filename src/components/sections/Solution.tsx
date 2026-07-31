@@ -4,7 +4,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export default function Solution() {
 	return (
-		<section id="solution" className="w-full bg-white py-24 md:py-32">
+		<section id="solution" className="w-full bg-background py-24 md:py-32">
 			<Container size="lg" className="flex flex-col items-center">
 				{/* Section Header */}
 				<SectionHeader
@@ -54,10 +54,10 @@ export default function Solution() {
 						<div className="w-full h-[2px] rounded-full bg-gradient-to-r from-primary/10 via-primary/30 to-primary/10 mb-6" />
 
 						<div className="w-full text-left">
-							<h3 className="text-lg font-medium text-black mb-1">
+							<h3 className="text-lg font-medium text-foreground mb-1">
 								Smart Eyewear
 							</h3>
-							<p className="text-sm text-black/60 leading-relaxed">
+							<p className="text-sm text-foreground/60 leading-relaxed">
 								Detect Obstacles And Navigate Safely.
 							</p>
 						</div>
@@ -76,10 +76,10 @@ export default function Solution() {
 						<div className="w-full h-[2px] rounded-full bg-gradient-to-r from-primary/10 via-primary/30 to-primary/10 mb-6" />
 
 						<div className="w-full text-left">
-							<h3 className="text-lg font-medium text-black mb-1">
+							<h3 className="text-lg font-medium text-foreground mb-1">
 								Smart Band
 							</h3>
-							<p className="text-sm text-black/60 leading-relaxed">
+							<p className="text-sm text-foreground/60 leading-relaxed">
 								Feel Hazards Through Intelligent Vibrations.
 							</p>
 						</div>
@@ -98,10 +98,10 @@ export default function Solution() {
 						<div className="w-full h-[2px] rounded-full bg-gradient-to-r from-primary/10 via-primary/30 to-primary/10 mb-6" />
 
 						<div className="w-full text-left">
-							<h3 className="text-lg font-medium text-black mb-1">
+							<h3 className="text-lg font-medium text-foreground mb-1">
 								Hearing Assist
 							</h3>
-							<p className="text-sm text-black/60 leading-relaxed">
+							<p className="text-sm text-foreground/60 leading-relaxed">
 								Guides You With Voice To Avoid Obstacles
 							</p>
 						</div>
