@@ -2,162 +2,136 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import MagneticButton from "../ui/MagneticButton";
 
-interface NavItem {
-	label: string;
-	href: string;
-}
-
-const NAV_ITEMS: NavItem[] = [
-	{ label: "The Reality", href: "#reality" },
-	{ label: "Luminexis", href: "#solution" },
-	{ label: "How It Works", href: "#how-it-works" },
-	{ label: "Why Us", href: "#why-us" },
+const NAV_ITEMS = [
+	{ label: "Story", href: "#story" },
+	{ label: "Products", href: "#products" },
+	{ label: "AI Core", href: "#ai" },
+	{ label: "Features", href: "#features" },
 ];
 
 export default function Header() {
-	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
+	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
-			setIsScrolled(window.scrollY >= 0);
+			setIsScrolled(window.scrollY > 20);
 		};
-
 		window.addEventListener("scroll", handleScroll);
-		// Check initial scroll position
 		handleScroll();
-
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
 	return (
 		<header
-			className={`w-full z-50 transition-all duration-300 ${
-				isScrolled
-					? "fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100"
-					: "absolute top-0 bg-white"
+			className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+				isScrolled ? "py-4" : "py-6"
 			}`}
 		>
 			<div
-				className={`container mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
-					isScrolled ? "h-16" : "h-16 md:h-24"
+				className={`mx-auto max-w-7xl px-6 transition-all duration-500 ${
+					isScrolled
+						? "w-[90%] md:w-full rounded-full glass"
+						: "w-full bg-transparent"
 				}`}
 			>
-				<Link href="/" className="flex items-center gap-3">
-					<div className="flex h-8 w-8 items-center justify-center">
-						<svg
-							className="h-8 w-8 text-black"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							strokeWidth="1.5"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-						>
-							<circle cx="12" cy="12" r="10" />
-							<path d="M9 8h6" />
-							<path d="M9 12h5" />
-							<path d="M9 16h6" />
-							<path d="M9 8v8" />
-						</svg>
-					</div>
-					<span className="font-logo text-black text-xl tracking-tight">
-						Luminexis
-					</span>
-				</Link>
-
-				{/* Desktop Navigation */}
-				<nav
-					className="hidden items-center gap-10 md:flex absolute left-1/2 -translate-x-1/2"
-					aria-label="Main navigation"
-				>
-					{NAV_ITEMS.map((item) => (
-						<Link
-							key={item.label}
-							href={item.href}
-							className="text-black/60 hover:text-black text-[15px] font-medium transition-colors"
-						>
-							{item.label}
-						</Link>
-					))}
-				</nav>
-
-				{/* Desktop CTA */}
-				<div className="hidden md:block">
-					<a
-						href="https://wa.me/918113841363"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-7 text-[15px] font-medium text-white transition-all hover:bg-primary-dark hover:shadow-lg hover:-translate-y-0.5"
-					>
-						Connect Us
-					</a>
-				</div>
-
-				{/* Mobile Menu Button */}
-				<button
-					id="mobile-menu-toggle"
-					className="text-black/60 hover:text-black inline-flex items-center justify-center rounded-md p-2 transition-colors md:hidden"
-					onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-					aria-expanded={isMobileMenuOpen}
-					aria-controls="mobile-menu"
-					aria-label="Toggle navigation menu"
-				>
-					<svg
-						className="h-6 w-6"
-						fill="none"
-						viewBox="0 0 24 24"
-						strokeWidth={1.5}
-						stroke="currentColor"
-					>
-						{isMobileMenuOpen ? (
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								d="M6 18L18 6M6 6l12 12"
-							/>
-						) : (
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-							/>
-						)}
-					</svg>
-				</button>
-			</div>
-
-			{/* Mobile Menu */}
-			{isMobileMenuOpen && (
-				<nav
-					id="mobile-menu"
-					className="bg-white border-b border-gray-100 md:hidden absolute top-full left-0 w-full shadow-lg"
-					aria-label="Mobile navigation"
-				>
-					<div className="container mx-auto max-w-7xl space-y-1 px-4 pt-2 pb-6 sm:px-6 flex flex-col gap-2">
-						{NAV_ITEMS.map((item) => (
+				<div className="flex items-center justify-between h-14 px-2">
+					{/* Left Navigation */}
+					<nav className="hidden md:flex items-center gap-8 flex-1">
+						{NAV_ITEMS.slice(0, 2).map((item) => (
 							<Link
 								key={item.label}
 								href={item.href}
-								className="text-black/60 hover:bg-black/5 hover:text-black block rounded-md px-3 py-2 text-base font-medium transition-colors"
-								onClick={() => setIsMobileMenuOpen(false)}
+								className="group relative text-sm font-medium text-foreground/70 hover:text-foreground transition-colors"
 							>
 								{item.label}
+								<span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
 							</Link>
 						))}
-						<a
-							href="https://wa.me/918113841363"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-full bg-[#0f172a] px-7 text-[15px] font-medium text-white transition-all hover:bg-[#1e293b]"
-							onClick={() => setIsMobileMenuOpen(false)}
-						>
-							Connect Us
-						</a>
+					</nav>
+
+					{/* Center Logo */}
+					<Link
+						href="/"
+						className="flex-1 md:flex-none flex justify-center items-center gap-2 group"
+					>
+						<div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30 group-hover:bg-primary/40 transition-colors">
+							<div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
+						</div>
+						<span className="font-heading text-xl font-bold tracking-wider text-foreground">
+							LUMINEXIS
+						</span>
+					</Link>
+
+					{/* Right Navigation & CTA */}
+					<div className="hidden md:flex items-center justify-end gap-8 flex-1">
+						<nav className="flex items-center gap-8">
+							{NAV_ITEMS.slice(2, 4).map((item) => (
+								<Link
+									key={item.label}
+									href={item.href}
+									className="group relative text-sm font-medium text-foreground-secondary hover:text-foreground transition-colors"
+								>
+									{item.label}
+									<span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
+								</Link>
+							))}
+						</nav>
+						<MagneticButton className="px-6 py-2.5 rounded-full bg-foreground text-background font-semibold text-sm hover:bg-primary hover:text-white transition-colors">
+							Book Demo
+						</MagneticButton>
 					</div>
-				</nav>
-			)}
+
+					{/* Mobile Menu Toggle */}
+					<button
+						className="md:hidden text-foreground p-2"
+						onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+					>
+						<div className="w-6 h-5 flex flex-col justify-between">
+							<span
+								className={`w-full h-0.5 bg-current transition-transform ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}
+							/>
+							<span
+								className={`w-full h-0.5 bg-current transition-opacity ${isMobileMenuOpen ? "opacity-0" : ""}`}
+							/>
+							<span
+								className={`w-full h-0.5 bg-current transition-transform ${isMobileMenuOpen ? "-rotate-45 -translate-y-2.5" : ""}`}
+							/>
+						</div>
+					</button>
+				</div>
+			</div>
+
+			{/* Mobile Menu Overlay */}
+			<AnimatePresence>
+				{isMobileMenuOpen && (
+					<motion.div
+						initial={{ opacity: 0, y: -20 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y: -20 }}
+						className="absolute top-full left-0 right-0 p-4 md:hidden"
+					>
+						<div className="glass rounded-3xl p-6 flex flex-col gap-6">
+							{NAV_ITEMS.map((item) => (
+								<Link
+									key={item.label}
+									href={item.href}
+									onClick={() => setIsMobileMenuOpen(false)}
+									className="text-lg font-medium text-foreground-secondary hover:text-foreground"
+								>
+									{item.label}
+								</Link>
+							))}
+							<button className="w-full py-3 rounded-full bg-primary text-white font-semibold mt-4">
+								Book Demo
+							</button>
+						</div>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</header>
 	);
 }

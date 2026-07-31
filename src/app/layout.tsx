@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Oxanium, Audiowide } from "next/font/google";
+import { Oxanium, Inter } from "next/font/google";
 import { SITE_CONFIG } from "@/lib/constants";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Analytics } from "@vercel/analytics/next";
+import LenisProvider from "@/components/providers/LenisProvider";
 import "./globals.css";
 
 const oxanium = Oxanium({
@@ -12,9 +13,8 @@ const oxanium = Oxanium({
 	display: "swap",
 });
 
-const audiowide = Audiowide({
-	weight: "400",
-	variable: "--font-audiowide",
+const inter = Inter({
+	variable: "--font-inter",
 	subsets: ["latin"],
 	display: "swap",
 });
@@ -69,13 +69,15 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
-			className={`${oxanium.variable} ${audiowide.variable} h-full antialiased`}
+			className={`${oxanium.variable} ${inter.variable} h-full antialiased`}
 			suppressHydrationWarning
 		>
 			<body className="bg-background text-foreground flex min-h-full flex-col">
-				<Header />
-				<main className="flex-1">{children}</main>
-				<Footer />
+				<LenisProvider>
+					<Header />
+					<main className="flex-1">{children}</main>
+					<Footer />
+				</LenisProvider>
 				<Analytics />
 			</body>
 		</html>
