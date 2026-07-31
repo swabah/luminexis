@@ -23,7 +23,7 @@ export default function Solution() {
 					/>
 					{/* Dark overlay for better button contrast, optional but good */}
 					<div className="absolute inset-0 bg-black/10 transition-colors duration-300 group-hover:bg-black/20" />
-					
+
 					{/* Play Button */}
 					<div className="absolute inset-0 flex items-center justify-center">
 						<div className="flex items-center gap-2.5 bg-black/40 backdrop-blur-md text-white/95 px-6 py-3 rounded-full font-medium text-sm sm:text-base transition-transform duration-300 group-hover:scale-105 border border-white/10">
@@ -52,12 +52,12 @@ export default function Solution() {
 						</div>
 						{/* Gradient Separator */}
 						<div className="w-full h-[2px] rounded-full bg-gradient-to-r from-primary/10 via-primary/30 to-primary/10 mb-6" />
-						
+
 						<div className="w-full text-left">
-							<h3 className="text-xs font-medium text-black mb-2">
+							<h3 className="text-lg font-medium text-black mb-1">
 								Smart Eyewear
 							</h3>
-							<p className="text-xs text-black/60 leading-relaxed">
+							<p className="text-sm text-black/60 leading-relaxed">
 								Detect Obstacles And Navigate Safely.
 							</p>
 						</div>
@@ -74,12 +74,12 @@ export default function Solution() {
 						</div>
 						{/* Gradient Separator */}
 						<div className="w-full h-[2px] rounded-full bg-gradient-to-r from-primary/10 via-primary/30 to-primary/10 mb-6" />
-						
+
 						<div className="w-full text-left">
-							<h3 className="text-xs font-medium text-black mb-2">
+							<h3 className="text-lg font-medium text-black mb-1">
 								Smart Band
 							</h3>
-							<p className="text-xs text-black/60 leading-relaxed">
+							<p className="text-sm text-black/60 leading-relaxed">
 								Feel Hazards Through Intelligent Vibrations.
 							</p>
 						</div>
@@ -96,12 +96,12 @@ export default function Solution() {
 						</div>
 						{/* Gradient Separator */}
 						<div className="w-full h-[2px] rounded-full bg-gradient-to-r from-primary/10 via-primary/30 to-primary/10 mb-6" />
-						
+
 						<div className="w-full text-left">
-							<h3 className="text-xs font-medium text-black mb-2">
+							<h3 className="text-lg font-medium text-black mb-1">
 								Hearing Assist
 							</h3>
-							<p className="text-xs text-black/60 leading-relaxed">
+							<p className="text-sm text-black/60 leading-relaxed">
 								Guides You With Voice To Avoid Obstacles
 							</p>
 						</div>

@@ -9,7 +9,7 @@ const steps = [
 		id: "01",
 		title: "Wear Luminexis",
 		desc: "Put on the glasses, hearing assist, and smart band. The ecosystem syncs instantly without any complicated pairing required.",
-		image: "/images/how-it-works-1.png",
+		image: "/images/hero-woman-cutout.png",
 		color: "from-primary to-primary-dark",
 		shadow: "shadow-primary/20",
 		icon: (
@@ -105,50 +105,55 @@ export default function HowItWorks() {
 					</div>
 
 					{/* Right Scrollable Cards */}
-					<div className="lg:w-2/3 flex flex-col gap-6 lg:gap-12">
+					<div className="lg:w-2/3 flex flex-col gap-8 lg:gap-10">
 						{steps.map((step, idx) => (
 							<motion.div
 								key={idx}
-								initial={{ opacity: 0, y: 50 }}
+								initial={{ opacity: 0, y: 40 }}
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true, margin: "-100px" }}
 								transition={{
-									duration: 0.8,
-									ease: [0.16, 1, 0.3, 1],
+									duration: 0.7,
+									delay: idx * 0.15,
+									ease: [0.21, 1.11, 0.81, 0.99],
 								}}
-								className={`relative group flex flex-col bg-primary/5 border border-primary/20 rounded-2xl p-5 sm:p-6 md:p-8 hover:border-primary/40 transition-all duration-500 overflow-hidden`}
+								className="group relative flex flex-col sm:flex-row bg-white rounded-3xl border border-black/[0.04]  overflow-hidden"
 							>
-								{/* Content Header */}
-								<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 lg:mb-6 relative z-10">
-									<div className="flex items-center gap-3">
-										<div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-primary/10">
-											<div
-												className={`w-8 h-8 rounded-full bg-gradient-to-br ${step.color} p-1.5 flex items-center justify-center`}
-											>
-												{step.icon}
-											</div>
-										</div>
-										<h3 className="text-base md:text-lg font-medium text-black tracking-tight">
-											{step.title}
-										</h3>
-									</div>
-									<div className="text-4xl md:text-5xl font-bold text-black/5 select-none font-logo">
-										{step.id}
-									</div>
-								</div>
-
-								{/* Description */}
-								<p className="text-black/70 text-sm leading-relaxed max-w-lg mb-6 lg:mb-8 relative z-10 font-normal">
-									{step.desc}
-								</p>
-
-								{/* Image Container */}
-								<div className="relative w-full h-40 sm:h-56 rounded-xl overflow-hidden bg-white/50 border border-black/5 mt-auto">
+								{/* Image Area */}
+								<div className="relative w-full sm:w-[45%] h-64 sm:h-auto overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10 flex items-center justify-center">
 									<img
 										src={step.image}
 										alt={step.title}
-										className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+										className={`w-full h-full object-cover rounded-2xl`}
 									/>
+								</div>
+
+								{/* Content Area */}
+								<div className="relative w-full sm:w-[55%] p-8 sm:p-10 flex flex-col justify-center bg-white">
+									<div className="absolute top-6 right-8 text-7xl font-bold text-black/[0.03] font-logo pointer-events-none select-none transition-all duration-500 group-hover:-translate-y-2 group-hover:text-primary/5">
+										{step.id}
+									</div>
+
+									<div className="flex items-center gap-5 mb-6 relative z-10">
+										<div
+											className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${step.color} p-[1px] shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-shadow duration-500`}
+										>
+											<div className="w-full h-full bg-white rounded-[15px] flex items-center justify-center">
+												<div
+													className={`w-10 h-10 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white`}
+												>
+													{step.icon}
+												</div>
+											</div>
+										</div>
+										<h3 className="text-2xl font-semibold text-black tracking-tight">
+											{step.title}
+										</h3>
+									</div>
+
+									<p className="text-black/60 text-base leading-relaxed relative z-10 pr-4">
+										{step.desc}
+									</p>
 								</div>
 							</motion.div>
 						))}
