@@ -2,8 +2,8 @@
 
 /* ─── Design Tokens ─── */
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
+  --background: #ffffff;
+  --foreground: #000;
   --border: #033C1F;
   --muted: #033C1F;
   --muted-foreground: #a3a3a3;
